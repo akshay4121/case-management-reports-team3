@@ -1,0 +1,25 @@
+Feature: Test CRUD methods in Community Resources API Testing
+
+  Scenario:  ADD Policy //create new hospital policy
+    Given the user sets POST <../hospitalPolicy> service
+     When the user sends a "Post hospitalPolicy" request using "hospitalPolicy.json"
+     Then the user should get a successful response "200 OK"
+      And the response should match "hospitalPolicy_response.json"
+
+  Scenario: GET Policy //Get all Hospital policies
+    Given the user sets GET <../hospitalPolicy/> service
+     When the user sends a "Get hospitalPolicy/" request using "hospitalPolicy_all.json"
+     Then the user should get a successful response code "200 OK"
+      And the response should match "hospitalPolicy_all_response.json"
+
+  Scenario: UPDATE Policy //update existing hospital policy
+    Given the user sets PUT <../hospitalPolicy/795a9fd5> service
+     When the user sends a "Put hospitalPolicy/795a9fd5" request using "updated_hospitalPolicy.json"
+     Then the user should get a successful response code "200 OK"
+      And the response should match "updated_hospitalPolicy_response.json"
+
+  Scenario: DELETE Policy //delete existing hospital policy with given id
+    Given the user sets DEL <../hospitalPolicy/826f0c240bee> service
+     When the user sends a "Del hospitalPolicy/826f0c240bee" request using "deleted_hospitalPolicy.json"
+     Then the user should get a successful response code "200 OK"
+      And the response should match "deleted_hospitalPolicy_response.json"
