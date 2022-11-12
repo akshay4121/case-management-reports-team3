@@ -1,0 +1,25 @@
+Feature: Test CRUD methods in HOSPITAL POLICYMaker API Testing
+
+  Scenario:  ADD Policy //create new policy maker
+    Given the user sets POST <../policyMaker> service
+     When the user sends a "Post policyMaker" request using "policyMaker.json"
+     Then the user should get a successful response "200 OK"
+      And the response should match "policyMaker_response.json"
+
+  Scenario: GET Policy //Get all policy makers
+    Given the user sets GET <../policyMaker/> service
+     When the user sends a "Get policyMaker/" request using "policyMaker_all.json"
+     Then the user should get a successful response code "200 OK"
+      And the response should match "policyMaker_all_response.json"
+
+  Scenario: UPDATE Policy //update existing policy maker
+    Given the user sets PUT <../policyMaker/11456> service
+     When the user sends a "Put policyMaker/11456" request using "updated_policyMaker.json"
+     Then the user should get a successful response code "200 OK"
+      And the response should match "updated_policyMaker_response.json"
+
+  Scenario: DELETE Policy //delete existing policy maker with given id
+    Given the user sets DEL <../policyMaker/11456> service
+     When the user sends a "Del policyMaker/11456" request using "deleted_policyMaker.json"
+     Then the user should get a successful response code "200 OK"
+      And the response should match "deleted_policyMaker_response.json"
